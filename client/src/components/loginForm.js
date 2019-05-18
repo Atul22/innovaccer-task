@@ -6,6 +6,8 @@ import { withStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import auth from '../services/authService';
+import { connect } from "react-redux";
+import ACTIONS from '../actions/actions';
 
 const styles = theme => ({
   margin: {
@@ -86,14 +88,9 @@ class LoginForm extends Component {
    * Trigger form submit and start login actions
    */
 
-	handleClick = async e => {
-		try {
-			const { data } = this.state;
-			await auth.login(data.username, data.password);
-		} catch (error) {
-			const errors = { ...this.state.errors };
-			errors.username = error.response.data.errorMessage;
-		}
+	handleClick = (event) => {
+		const { data } = this.state;
+		this.props.login(data);
 	};
 
 	render() {
@@ -153,4 +150,10 @@ class LoginForm extends Component {
 	}
 }
 
-export default withStyles(styles)(LoginForm);
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = (dispatch) => ({
+	login(user) { dispatch(ACTIONS.asyncLogin(user))}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginForm));

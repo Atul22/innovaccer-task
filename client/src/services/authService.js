@@ -9,6 +9,7 @@ const tokenKey = "token";
 export async function login(username, password) {
   const { data } = await http.post(apiEndPoint, { username, password });
   localStorage.setItem(tokenKey, data.jwt); //use local storage to store jwt
+  return jwtDecode(data.jwt);
 }
 
 export function logout() {

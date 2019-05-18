@@ -16,18 +16,21 @@ const response = {
 
 
 router.post('/', (req, res) => {
-	const {username, password} = req.body;
+  setTimeout(() => {
+    const {username, password} = req.body;
 
-	const user = users.getUser(username);
+    const user = users.getUser(username);
 
-	if(!user) return res.status(400).send(errorMessage);
+    if(!user) return res.status(400).send(errorMessage);
 
-	if(password !== user.password) return res.status(400).send(errorMessage);
+    if(password !== user.password) return res.status(400).send(errorMessage);
 
-	const jwt = auth.generateAuthKey(username);
+    const jwt = auth.generateAuthKey(username);
     response.jwt = jwt;
 
     res.send(response);
+  }, 2000);
+	
 }) 
 
 module.exports = router;
