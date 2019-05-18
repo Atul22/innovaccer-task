@@ -5,7 +5,6 @@ import { unstable_Box as Box } from "@material-ui/core/Box";
 import { withStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
-import auth from '../services/authService';
 import { connect } from "react-redux";
 import ACTIONS from '../actions/actions';
 
@@ -20,9 +19,9 @@ class LoginForm extends Component {
 	state = {
 		data: {
 		    username: "",
-	    password: ""
-	},
-	errors: {}
+	    	password: ""
+		},
+		errors: {}
 	};
 
 	/**
@@ -88,7 +87,7 @@ class LoginForm extends Component {
    * Trigger form submit and start login actions
    */
 
-	handleClick = (event) => {
+	handleSubmit = (event) => {
 		const { data } = this.state;
 		this.props.login(data);
 	};
@@ -139,7 +138,7 @@ class LoginForm extends Component {
 					    variant="contained"
 					    color="primary"
 					    disabled={this.validate()}
-					    onClick={this.handleClick}
+					    onClick={this.handleSubmit}
 					    className={classes.button}
 					>
 					    Login
@@ -150,10 +149,9 @@ class LoginForm extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
 	login(user) { dispatch(ACTIONS.asyncLogin(user))}
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginForm));
+export default connect(null, mapDispatchToProps)(withStyles(styles)(LoginForm));

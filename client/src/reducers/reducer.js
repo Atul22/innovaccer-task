@@ -1,23 +1,29 @@
 import ACTIONS from '../const/actions';
+import STATE from '../const/state';
 import {fromJS} from 'immutable';
-import _ from 'lodash';
 
 function defaultState() {
 	return fromJS({
-		user: null,
-		error: ''
+		[STATE.USER]: null,
+		[STATE.SHOW_PROGRESS]: false
 	})
 };
 
 const reducer = (state = defaultState(), action) => {
 	switch(action.type) {
-		case ACTIONS.LOGIN_SUCCESS: {
-			return state.set('user', action.payload.username);
-		}
-		case ACTIONS.LOGIN_ERROR: {
-			console.log(action.payload);
-			return state.set('error', action.payload.error);
-		}
+
+		case ACTIONS.LOGIN: 
+			return state.set(STATE.USER, action.payload.username);
+		
+		case ACTIONS.LOGOUT: 
+			return state.set(STATE.USER, null);
+
+		case ACTIONS.SHOW_PROGRESS:
+			return state.set(STATE.SHOW_PROGRESS, true);	
+
+		case ACTIONS.HIDE_PROGRESS:
+			return state.set(STATE.SHOW_PROGRESS, false);
+
 		default:
 			return state;
 	}
