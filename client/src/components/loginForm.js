@@ -11,6 +11,10 @@ import ACTIONS from '../actions/actions';
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit
+  },
+  marginTop: {
+    margin: 50,
+    textAlign: 'center'
   }
 });
 
@@ -96,55 +100,48 @@ class LoginForm extends Component {
 		const { classes } = this.props;
     	const { data, errors } = this.state;
 		return (
-			<div
-				style={{
-					position: "absolute",
-					left: "50%",
-					top: "50%",
-					transform: "translate(-50%, -50%)"
-				}}
-			>
-				<FormControl className={classes.margin}>
-	          		<span style={{ textAlign: "center", fontSize: 25 }}>Sign in</span>
-					<Box m={2} />
+			<div className={classes.marginTop}>
+			<FormControl className={classes.margin}>
+          		<span style={{ textAlign: "center", fontSize: 25 }}>Sign in</span>
+				<Box m={2} />
 
-					<Input
-					    name="username"
-					    label="Username"
-					    type="text"
-					    value={data.username}
-					    onChange={this.handleInput}
-					    error={errors.username}
-					    helperText={errors.username}
-					    className={classes.margin}
-					/>
+				<Input
+				    name="username"
+				    label="Username"
+				    type="text"
+				    value={data.username}
+				    onChange={this.handleInput}
+				    error={errors.username}
+				    helperText={errors.username}
+				    className={classes.margin}
+				/>
 
-					<Box m={1} />
+				<Box m={1} />
 
-					<Input
-					    name="password"
-					    label="Password"
-					    type="password"
-					    value={data.password}
-					    onChange={this.handleInput}
-					    error={errors.password}
-					    helperText={errors.password}
-					    className={classes.margin}
-					/>
+				<Input
+				    name="password"
+				    label="Password"
+				    type="password"
+				    value={data.password}
+				    onChange={this.handleInput}
+				    error={errors.password}
+				    helperText={errors.password}
+				    className={classes.margin}
+				/>
 
-					<Box m={2} />
+				<Box m={2} />
 
-					<Button
-					    variant="contained"
-					    color="primary"
-					    disabled={this.validate()}
-					    onClick={this.handleSubmit}
-					    className={classes.button}
-					>
-					    Login
-					</Button>
-		        </FormControl>
-			</div>
+				<Button
+				    variant="contained"
+				    color="primary"
+				    disabled={this.validate()}
+				    onClick={this.handleSubmit}
+				    className={classes.button}
+				>
+				    Login
+				</Button>
+	        </FormControl>
+	        </div>
 		)
 	}
 }

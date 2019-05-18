@@ -13,11 +13,11 @@ const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 function App() {
   return (
   	<Provider store={reduxStore}>
-	    <React.Fragment>
+	    <div className="App">
 	    	<ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_CENTER} />
 	      	<NavBar/>
 	      	<Home/>
-	    </React.Fragment>
+	    </div>
     </Provider>
   );
 }
