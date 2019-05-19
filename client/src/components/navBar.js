@@ -1,14 +1,14 @@
 import React from 'react';
+import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import ProgressBar from './common/progressBar';
 import LeftDrawer from './common/drawer';
-import { connect } from "react-redux";
 import ACTIONS from '../actions/actions';
 import STATE from '../const/state';
 
@@ -30,7 +30,7 @@ const styles = {
 
 class NavBar extends React.Component {
   state = {
-    left: false,
+    left: false
   };
 
   toggleDrawer = (open) => () => {
@@ -38,6 +38,10 @@ class NavBar extends React.Component {
       left: open,
     });
   };
+
+  handleLogout = (e) => {
+    this.props.logout();
+  }
 
   render() {
     const { classes, user, show_porgress } = this.props;
@@ -47,7 +51,7 @@ class NavBar extends React.Component {
         <AppBar position="static" style={{ background: "orangered" }}>
           <Toolbar>
             {
-              !user ?
+              user ?
                 <React.Fragment>
                   <IconButton 
                     className={classes.menuButton}
@@ -63,7 +67,7 @@ class NavBar extends React.Component {
                   </Typography>
 
 
-                  <Button color="inherit" onClick={() => {this.props.logout()}}>Logout</Button> 
+                  <Button color="inherit" onClick={this.handleLogout}>Logout</Button> 
                 </React.Fragment> :
                 null
             }

@@ -2,7 +2,7 @@ function getRandomInt(max) {
   return Math.ceil(Math.random() * Math.floor(max));
 }
 
-function getRandomData(numPoints) {
+export function getRandomData(numPoints) {
   const data = [];
   for(let i = 0; i < numPoints; i++) {
     data.push(getRandomInt(10));
@@ -33,17 +33,12 @@ export const audienceChartConfig = {
   },
   series: [{
     data: getRandomData(20),
-    pointStart: Date.UTC(2009, 0, 1),
-    pointInterval: 24 * 3600 * 1000 * 5, // five days
+    pointInterval: 24 * 3600 * 1000 * 2, // five days
     showInLegend: false
   }]
 };
 
-function randomDate(start, end) {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
-
-function getRandomTimeData(numPoints) {
+export function getRandomTimeData(numPoints) {
   const data = [];
   for(let i = 0; i < numPoints; i++) {
     data.push(getRandomInt(240) * 1000);
@@ -85,7 +80,6 @@ export const behaviourChartConfig = {
   },
   series: [{
     data: getRandomTimeData(20),
-    pointStart: Date.UTC(2009, 0, 1),
     pointInterval: 24 * 3600 * 1000 * 5, // five days
     showInLegend: false
   }]

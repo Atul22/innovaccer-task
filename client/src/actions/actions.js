@@ -28,6 +28,20 @@ const hideProgressBar = () => {
 	}
 }
 
+const incrementMonth = (month) => {
+	return {
+		type: ACTIONS.INCREMENT_MONTH,
+		payload: month
+	}
+}
+
+const decrementMonth = (month) => {
+	return {
+		type: ACTIONS.DECREMENT_MONTH,
+		payload: month
+	}
+}
+
 const asyncLogin = (user) => {
 	return async (dispatch) => {
 		try {
@@ -45,5 +59,7 @@ const asyncLogin = (user) => {
 
 export default {
 	asyncLogin,
-	logout
+	logout,
+	incrementMonth,
+	decrementMonth
 }

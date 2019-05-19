@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use('/api/auth', auth);
 
-const PORT = '3900';
+const PORT = process.env.REACT_APP_PORT || 3900;
 app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}`);
 })

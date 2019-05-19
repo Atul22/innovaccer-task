@@ -1,23 +1,21 @@
 .container {
-	padding-bottom: 5px;
+	padding-bottom: 2px;
 }
 
 .title {
-	display: inline;
-	font-size: 25px
+	font-size: 20px
 }
 
 .subTitle {
-	font-size: 12px;
+	font-size: 10px;
 	margin-left: 16px
 }
 
 .value {
-	font-size: 25px;
+	font-size: 22px;
 	margin-left: 15px
 }
 .actions {
-	display: inline;
 	float: right;
 }
 

@@ -10,16 +10,19 @@ import "react-toastify/dist/ReactToastify.css";
 
 const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 
-function App() {
-  return (
-  	<Provider store={reduxStore}>
-	    <div className="App">
-	    	<ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_CENTER} />
-	      	<NavBar/>
-	      	<Home/>
-	    </div>
-    </Provider>
-  );
+class App extends React.Component {
+
+	render() {
+		return (
+			<Provider store={reduxStore}>
+				<div className="App">
+					<ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_CENTER} />
+					<NavBar />
+					<Home />
+				</div>
+			</Provider>
+		);
+	}
 }
 
 export default App;

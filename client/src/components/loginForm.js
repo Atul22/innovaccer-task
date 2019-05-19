@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Joi from "joi-browser";
-import Input from "./common/input";
+import { connect } from "react-redux";
 import { unstable_Box as Box } from "@material-ui/core/Box";
 import { withStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
-import { connect } from "react-redux";
+import Input from "./common/input";
 import ACTIONS from '../actions/actions';
 
 const styles = theme => ({
