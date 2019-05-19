@@ -1,0 +1,28 @@
+.container {
+	padding-bottom: 5px;
+}
+
+.title {
+	display: inline;
+	font-size: 25px
+}
+
+.subTitle {
+	font-size: 12px;
+	margin-left: 16px
+}
+
+.value {
+	font-size: 25px;
+	margin-left: 15px
+}
+.actions {
+	display: inline;
+	float: right;
+}
+
+.icons {
+	color: grey;
+	margin-left: 20px;
+	cursor: pointer;
+}

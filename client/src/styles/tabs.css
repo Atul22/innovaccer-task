@@ -1,0 +1,25 @@
+.tab {
+	cursor: pointer;
+	width: auto;
+	height: 60px;
+	padding: 5px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.tab-container {
+	border-style: solid;
+  	border-width: 1px 0px 1px 0px;
+  	border-color: #eeeeee;
+  	margin-bottom: 10px;
+}
+
+#tab-title {
+	text-align: center;
+	font-size: 12px;
+	margin-bottom: 4px;
+}
+
+.active {
+	background:  #0078D7 ;
+	color: white;
+}

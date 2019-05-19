@@ -47,7 +47,7 @@ class NavBar extends React.Component {
         <AppBar position="static" style={{ background: "orangered" }}>
           <Toolbar>
             {
-              user ?
+              !user ?
                 <React.Fragment>
                   <IconButton 
                     className={classes.menuButton}
