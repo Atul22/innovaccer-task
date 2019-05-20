@@ -5,9 +5,7 @@ This is a Login logout workflow application which contains
 1. A login view (form)
 2. A private view (visible to logged-in users only)
 
-It uses React.js on the client side and Node.js on the server side. 
-We expose an API endpoint using express framework for login actions.
-Client makes a call to the api endpoint. 
+It uses React.js and Redux on the client side and Node.js on the server side. 
 
 
 ## INSTALLATION:
@@ -15,7 +13,7 @@ Client makes a call to the api endpoint.
 Please use the same versions of dependecies as specified in package.json.
 
 Using npm, install the required node_modules
-From root directory
+From root directory  
 Step#1:
 ```bash
 cd client
